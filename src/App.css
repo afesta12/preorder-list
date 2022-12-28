@@ -1,1 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&display=swap');
 
+/* Resets */
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Heebo', sans-serif;
+    text-decoration: none;
+
+}
+
+/* Variables */
+:root {
+
+    --blue: #05386B;
+    --dark-green: #379683;
+    --mid-green: #5CDB95;
+    --light-green: #8EE4AF;
+    --off-white: #EDF5E1;
+
+    --bold: 600;
+    --medium: 500;
+    --light: 400;
+
+}
+
+/* Globals */
+
+body {
+
+    background: var(--mid-green);
+    overflow: hidden;
+
+}
+
+input {
+
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 2.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    width: 95%;
+    background: var(--mid-green);
+    color: var(--blue);
+
+}
+
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: var(--blue);
+    border: 1px solid var(--blue);
+    outline: 0 none;
+}
+
+::placeholder {
+
+    color: var(--blue);
+    font-size: .75rem;
+    letter-spacing: .05rem;
+    font-weight: var(--medium);
+
+}
+
+button {
+
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: .5rem;
+    border-radius: 10px;
+    width: 100%;
+    background: var(--mid-green);
+    color: var(--blue);
+    font-weight: bold;
+
+}
+
+h1, a {
+
+    color: var(--blue);
+
+}
+
+
+
+.App {
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+
+}
+
+.container {
+
+    display: flex;
+    align-items: center;
+
+}
+
+.login {
+
+    width: 90vw;
+    padding: 1rem;
+    height: 80vh;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+                rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+                rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+                rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+                rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background: var(--off-white);
+
+}
+
+.input {
+
+    flex-direction: column;
+    height: 20%;
+    width: 90%;
+    justify-content: space-between;
+
+}
+
+.bottom {
+
+    flex-direction: column;
+    height: 20%;
+    justify-content: space-evenly;
+
+}
