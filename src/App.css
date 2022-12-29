@@ -99,6 +99,12 @@ h1, h5, a {
 
 }
 
+p {
+
+    color: var(--white);
+
+}
+
 a, input, button {
 
     cursor: pointer;
@@ -203,6 +209,12 @@ a, input, button {
 
 }
 
+.order-top {
+
+    padding: .75rem;
+
+}
+
 .orders {
 
     height: 75%;
@@ -210,6 +222,45 @@ a, input, button {
     background: var(--grey);
     border-radius: 10px;
     flex-direction: column;
+
+}
+
+.order-list {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.order {
+
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    height: 4rem;
+    border-radius: 10px;
+    background-color: var(--black);
+    padding: 1rem;
+    align-items: center;
+    margin-top: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+}
+
+.icon {
+
+    cursor: pointer;
+
+}
+
+.icons {
+
+    display: flex;
+    width: 2rem;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -226,4 +277,3 @@ a, input, button {
     width: 45%;
 
 }
-
