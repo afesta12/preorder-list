@@ -14,11 +14,11 @@
 /* Variables */
 :root {
 
-    --blue: #05386B;
-    --dark-green: #379683;
-    --mid-green: #5CDB95;
-    --light-green: #8EE4AF;
-    --off-white: #EDF5E1;
+    --black: #0B0C10;
+    --grey: #1F2833;
+    --white: #C5C6C7;
+    --light-blue: #66FCF1;
+    --blue: #45A29E;
 
     --bold: 600;
     --medium: 500;
@@ -30,7 +30,7 @@
 
 body {
 
-    background: var(--mid-green);
+    background: var(--black);
     overflow: hidden;
 
 }
@@ -42,22 +42,29 @@ input {
     height: 2.5rem;
     padding: 1rem;
     border-radius: 10px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     width: 95%;
-    background: var(--mid-green);
-    color: var(--blue);
+    background: var(--white);
+    color: var(--black);
+
+}
+
+input:hover {
+
+    border-color: var(--blue);
+    border: 2px solid var(--blue);
 
 }
 
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
     border-color: var(--blue);
-    border: 1px solid var(--blue);
+    border: 2px solid var(--blue);
     outline: 0 none;
 }
 
 ::placeholder {
 
-    color: var(--blue);
+    color: var(--black);
     font-size: .75rem;
     letter-spacing: .05rem;
     font-weight: var(--medium);
@@ -71,15 +78,30 @@ button {
     padding: .5rem;
     border-radius: 10px;
     width: 100%;
-    background: var(--mid-green);
-    color: var(--blue);
+    background: var(--white);
+    color: var(--black);
     font-weight: bold;
 
 }
 
-h1, a {
+/* Register button */
+.register {
 
+    background: none;
+    box-shadow: none;
     color: var(--blue);
+
+}
+
+h1, h5, a {
+
+    color: var(--light-blue);
+
+}
+
+a, input, button {
+
+    cursor: pointer;
 
 }
 
@@ -90,7 +112,6 @@ h1, a {
     height: 100vh;
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
 
 }
 
@@ -101,6 +122,7 @@ h1, a {
 
 }
 
+/* Login Page */
 .login {
 
     width: 90vw;
@@ -115,7 +137,8 @@ h1, a {
                 rgba(0, 0, 0, 0.12) 0px 4px 6px, 
                 rgba(0, 0, 0, 0.17) 0px 12px 13px, 
                 rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    background: var(--off-white);
+    background: var(--grey);
+    margin-top: 10vh;
 
 }
 
@@ -135,3 +158,72 @@ h1, a {
     justify-content: space-evenly;
 
 }
+
+/* Register page */
+.register {
+
+    height: 40%;
+
+}
+
+/* Home page */
+
+.home {
+
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 90vw;
+
+}
+
+.home-input {
+
+    flex-direction: column;
+    background: var(--grey);
+    height: 20%;
+    width: 100%;
+    justify-content: space-evenly;
+    border-radius: 10px;
+
+}
+
+.text {
+
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: space-evenly;
+
+}
+
+.text > input {
+
+    width: 100%;
+
+}
+
+.orders {
+
+    height: 75%;
+    width: 90vw;
+    background: var(--grey);
+    border-radius: 10px;
+    flex-direction: column;
+
+}
+
+.buttons {
+
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+
+}
+
+.buttons > button {
+
+    width: 45%;
+
+}
+
