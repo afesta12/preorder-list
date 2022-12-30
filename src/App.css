@@ -211,8 +211,13 @@ a, input, button {
 
 .order-top {
 
-    padding: .75rem;
-
+    width: 80%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    
 }
 
 .orders {
@@ -231,6 +236,16 @@ a, input, button {
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+
+}
+
+.order-list::-webkit-scrollbar {
+
+    width: 0;
+    height: 0;
 
 }
 
@@ -244,8 +259,9 @@ a, input, button {
     background-color: var(--black);
     padding: 1rem;
     align-items: center;
-    margin-top: .5rem;
+    margin-bottom: .5rem;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    animation: fadein .75s ease-in-out;
 
 }
 
@@ -275,5 +291,20 @@ a, input, button {
 .buttons > button {
 
     width: 45%;
+
+}
+
+/* Animations */
+@keyframes fadein {
+
+    from { opacity: 0; }
+    to { opacity: 1; }
+
+}
+
+@keyframes fadeOut {
+
+    from { opacity: 1; }
+    to { opacity: 0; }
 
 }

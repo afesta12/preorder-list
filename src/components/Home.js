@@ -3,7 +3,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth"
 import { auth, db } from "../firebase"
 import { useNavigate } from "react-router-dom"
 import { uid } from "uid"
-import { set, ref, onValue } from "firebase/database"
+import { set, ref, onValue, remove } from "firebase/database"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faPen } from '@fortawesome/free-solid-svg-icons'
 
@@ -76,6 +76,12 @@ export default function Home() {
         })
 
         setOrder("");
+    }
+
+    // Delete from db
+    const handleDelete = (uid) => {
+
+        remove(ref(db, `/${auth.currentUser.uid}/${uid}`))
 
     }
 
@@ -116,14 +122,21 @@ export default function Home() {
 
                     orders.map(order => (
 
-                        <div className="order">
+                        <div id={order.uidd} className="order">
                         
                             <p>{order.order}</p>
 
                             <div className="icons">
                             
-                                <FontAwesomeIcon icon={faXmark} color="#45A29E" className='icon' />
-                                <FontAwesomeIcon icon={ faPen } color="#45A29E" size='xs' className='icon' />
+                                <FontAwesomeIcon onClick={() => handleDelete(order.uidd)} 
+                                                 icon={faXmark} 
+                                                 color="#45A29E" 
+                                                 className='icon' />
+
+                                <FontAwesomeIcon icon={ faPen } 
+                                                 color="#45A29E" 
+                                                 size='xs' 
+                                                 className='icon' />
                             
                             </div>
                         
@@ -134,7 +147,6 @@ export default function Home() {
                 }
             
             </div>
-        
         
         </div>
     
