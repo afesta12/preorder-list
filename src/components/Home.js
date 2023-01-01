@@ -3,7 +3,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth"
 import { auth, db } from "../firebase"
 import { useNavigate } from "react-router-dom"
 import { uid } from "uid"
-import { set, ref, onValue, remove } from "firebase/database"
+import { set, ref, onValue, remove, update } from "firebase/database"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faPen } from '@fortawesome/free-solid-svg-icons'
 
@@ -17,6 +17,11 @@ export default function Home() {
 
     // Orders
     const [orders, setOrders] = useState([]);
+
+    // Edit order usestate
+    const [isEdit, setIsEdit] = useState(false);
+
+    const [tempUidd, setTempUidd] = useState("");
 
     // Keep user from going to homepage when not logged in
     useEffect(() => {
@@ -81,7 +86,38 @@ export default function Home() {
     // Delete from db
     const handleDelete = (uid) => {
 
-        remove(ref(db, `/${auth.currentUser.uid}/${uid}`))
+        remove(ref(db, `/${auth.currentUser.uid}/${uid}`));
+        setIsEdit(false);
+        setOrder("");
+
+    }
+
+    // Update order information
+    const handleUpdate = (order) => {
+
+        // Change state to editing
+        setIsEdit(true);
+
+        // Add order information to the input box
+        setOrder(order.order);
+
+        // Set temp uid for the order being updated
+        setTempUidd(order.uidd);
+
+    }
+
+    const handleConfirmEdit = () => {
+
+        update(ref(db, `/${auth.currentUser.uid}/${tempUidd}`), {
+
+            order: order,
+            tempUidd, tempUidd,
+
+        });
+
+        // Reset order input box
+        setOrder("");
+        setIsEdit(false);
 
     }
 
@@ -102,7 +138,16 @@ export default function Home() {
 
             <div className="buttons">
             
-                <button onClick={ writeToDatabase } >Add to List</button>
+                {
+                    isEdit ? (
+                        <button onClick={ handleConfirmEdit } >Update</button>
+                    ) : (
+
+                        <button onClick={ writeToDatabase } >Add to List</button>
+
+                    )
+                }
+                
                 <button onClick={ handleSignOut } >Sign Out</button>
             
             </div>
@@ -122,9 +167,9 @@ export default function Home() {
 
                     orders.map(order => (
 
-                        <div id={order.uidd} className="order">
+                        <div className="order">
                         
-                            <p>{order.order}</p>
+                            <p className='order-text'>{order.order}</p>
 
                             <div className="icons">
                             
@@ -136,7 +181,8 @@ export default function Home() {
                                 <FontAwesomeIcon icon={ faPen } 
                                                  color="#45A29E" 
                                                  size='xs' 
-                                                 className='icon' />
+                                                 className='icon'
+                                                 onClick={() => handleUpdate(order) } />
                             
                             </div>
                         

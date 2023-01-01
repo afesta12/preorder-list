@@ -102,6 +102,9 @@ h1, h5, a {
 p {
 
     color: var(--white);
+    word-break: break-all;
+    white-space: normal;
+    width: 80%;
 
 }
 
@@ -242,6 +245,7 @@ a, input, button {
 
 }
 
+.order::-webkit-scrollbar,
 .order-list::-webkit-scrollbar {
 
     width: 0;
@@ -262,6 +266,9 @@ a, input, button {
     margin-bottom: .5rem;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     animation: fadein .75s ease-in-out;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
 }
 
