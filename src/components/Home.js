@@ -71,6 +71,15 @@ export default function Home() {
     // Add order to user's orders DB
     const writeToDatabase = () => {
 
+        const s = order;
+
+        if(s.length === 0) {
+
+            alert("No empty orders can be added.");
+            return;
+
+        }
+
         const uidd = uid();
 
         set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
@@ -108,6 +117,15 @@ export default function Home() {
 
     const handleConfirmEdit = () => {
 
+        const s = order;
+
+        if(s.length === 0) {
+
+            alert("No empty orders can be added.");
+            return;
+
+        }
+
         update(ref(db, `/${auth.currentUser.uid}/${tempUidd}`), {
 
             order: order,
@@ -132,7 +150,7 @@ export default function Home() {
                 <input type="text" 
                        placeholder='Add order...'
                        value={order}
-                       onChange={(e) => setOrder(e.target.value)} />
+                       onChange={(e) => setOrder(e.target.value.trim())} />
 
             </div>
 
