@@ -6,6 +6,7 @@ import { uid } from "uid"
 import { set, ref, onValue, remove, update } from "firebase/database"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faPen } from '@fortawesome/free-solid-svg-icons'
+import { ScaleText } from 'react-scale-text'
 
 export default function Home() {
 
@@ -71,7 +72,8 @@ export default function Home() {
     // Add order to user's orders DB
     const writeToDatabase = () => {
 
-        const s = order;
+        let s = order;
+        s.trim();
 
         if(s.length === 0) {
 
@@ -79,6 +81,8 @@ export default function Home() {
             return;
 
         }
+
+        setOrder(s);
 
         const uidd = uid();
 
@@ -149,8 +153,9 @@ export default function Home() {
                 <h5>Preorder name:</h5>
                 <input type="text" 
                        placeholder='Add order...'
+                       maxLength={120}
                        value={order}
-                       onChange={(e) => setOrder(e.target.value.trim())} />
+                       onChange={(e) => setOrder(e.target.value)} />
 
             </div>
 
@@ -187,20 +192,24 @@ export default function Home() {
 
                         <div className="order">
                         
-                            <p className='order-text'>{order.order}</p>
-
-                            <div className="icons">
+                            <div className="order-box">
                             
-                                <FontAwesomeIcon onClick={() => handleDelete(order.uidd)} 
-                                                 icon={faXmark} 
-                                                 color="#45A29E" 
-                                                 className='icon' />
+                                <p className='order-text' style={ { fontSize: order.order.length > 20 ? '.75rem' : '1rem' } } >{order.order}</p>
 
-                                <FontAwesomeIcon icon={ faPen } 
-                                                 color="#45A29E" 
-                                                 size='xs' 
-                                                 className='icon'
-                                                 onClick={() => handleUpdate(order) } />
+                                <div className="icons">
+
+                                    <FontAwesomeIcon onClick={() => handleDelete(order.uidd)} 
+                                                    icon={faXmark} 
+                                                    color="#45A29E" 
+                                                    className='icon' />
+
+                                    <FontAwesomeIcon icon={ faPen } 
+                                                    color="#45A29E" 
+                                                    size='xs' 
+                                                    className='icon'
+                                                    onClick={() => handleUpdate(order) } />
+
+                                </div>
                             
                             </div>
                         

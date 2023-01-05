@@ -240,12 +240,10 @@ a, input, button {
     align-items: center;
     flex-direction: column;
     overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none; 
 
 }
 
-.order::-webkit-scrollbar,
+.order-box::-webkit-scrollbar,
 .order-list::-webkit-scrollbar {
 
     width: 0;
@@ -258,17 +256,22 @@ a, input, button {
     display: flex;
     width: 90%;
     justify-content: space-between;
-    height: 4rem;
+    min-height: 4rem;
     border-radius: 10px;
     background-color: var(--black);
-    padding: 1rem;
     align-items: center;
     margin-bottom: .5rem;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     animation: fadein .75s ease-in-out;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+
+}
+
+.order-box {
+
+    width: 95%;
+    display: flex;
+    margin: .5rem auto;
+    justify-content: space-between;
 
 }
 
