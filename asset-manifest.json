@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/preorder-list/static/css/main.72eae694.css",
-    "main.js": "/preorder-list/static/js/main.319af620.js",
+    "main.js": "/preorder-list/static/js/main.a510e830.js",
     "index.html": "/preorder-list/index.html",
     "main.72eae694.css.map": "/preorder-list/static/css/main.72eae694.css.map",
-    "main.319af620.js.map": "/preorder-list/static/js/main.319af620.js.map"
+    "main.a510e830.js.map": "/preorder-list/static/js/main.a510e830.js.map"
   },
   "entrypoints": [
     "static/css/main.72eae694.css",
-    "static/js/main.319af620.js"
+    "static/js/main.a510e830.js"
   ]
 }
